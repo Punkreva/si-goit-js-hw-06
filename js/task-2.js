@@ -1,7 +1,7 @@
 class Storage {
   #items;
   
-  constructor(items) {
+  constructor(items = []) {
 
     this.#items = items;
   }
@@ -15,16 +15,7 @@ class Storage {
   }
 
   removeItem(itemToRemove) {
-    // Перший сбосіб
-    for (const item of this.#items) {
-      if (item === itemToRemove) {
-        this.#items.splice(this.#items.indexOf(itemToRemove),1)
-      }
-    }
-    // Другий спосіб
-    // if (this.#items.includes(itemToRemove)) {
-    //   this.#items.splice(this.#items.indexOf(itemToRemove),1)
-    // }
+    this.#items = this.#items.filter(item => item !== itemToRemove);
   }
 }
 
